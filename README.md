@@ -11,7 +11,7 @@ The technology behind it:
 
 ## Installing / Getting started
 
-### **Create the environment using `Virtual Environments`**
+### **Creating the environment using `Virtual Environments`**
 
 In the terminal run the following command:
 ```console
@@ -20,7 +20,7 @@ source tutorial-env/bin/activate
 pip install -r requirements.txt
 ``` 
 
-### **Create the environment using `Anaconda`**
+### **Creating the environment using `Anaconda`**
 
 In the terminal run the following command:
 ```console
@@ -47,7 +47,7 @@ python main.py \
 
 ## Running on GCP Dataflow
 
-### Template generation:
+Template generation:
 ```console
 python main.py \
 --runner=DataflowRunner \
@@ -63,5 +63,6 @@ python main.py \
 --requirements_file=requirements-dataflow.txt
 ```
 
-### Run the template on Dataflow:
+Run the template on Dataflow:
+
 See the documentation [Running classic templates](https://cloud.google.com/dataflow/docs/guides/templates/running-templates)
