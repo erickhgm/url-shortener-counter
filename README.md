@@ -44,3 +44,24 @@ python main.py \
 --collection=urls \
 --fixed_windows=60
 ```
+
+## Running on GCP Dataflow
+
+### Template generation:
+```console
+python main.py \
+--runner=DataflowRunner \
+--project=${PROJECT_ID} \
+--staging_location=gs://${GCP_BUCKET}/staging \
+--temp_location=gs://${GCP_BUCKET}/temp \
+--template_location=gs://${GCP_BUCKET}/templates/url-shortener-counter-1.0.0 \
+--region=southamerica-east1 \
+--project_id=${PROJECT_ID} \
+--input_subscription=projects/${PROJECT_ID}/subscriptions/url-clicks-counter \
+--collection=urls \
+--fixed_windows=60 \
+--requirements_file=requirements-dataflow.txt
+```
+
+### Run the template on Dataflow:
+See the documentation [Running classic templates](https://cloud.google.com/dataflow/docs/guides/templates/running-templates)
