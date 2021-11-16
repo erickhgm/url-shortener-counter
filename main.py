@@ -63,11 +63,13 @@ def run(argv=None, save_main_session=True):
     pipeline_options.view_as(StandardOptions).streaming = True
 
     logging.info('Running pipeline ...')
+    
     with beam.Pipeline(options=pipeline_options) as p:
         # Read from PubSub into a PCollection.
         ids = (
             p
-            | 'read_from_pub_sub' >> beam.io.ReadFromPubSub(subscription=known_args.input_subscription).with_output_types(bytes)
+            | 'read_from_pub_sub' >> beam.io.ReadFromPubSub(
+                subscription=known_args.input_subscription).with_output_types(bytes)
             | 'decode' >> beam.Map(lambda x: x.decode('utf-8'))
         )
         
@@ -84,7 +86,8 @@ def run(argv=None, save_main_session=True):
         (
             counts
             | 'format_dict' >> beam.ParDo(FormatAsDictFn())
-            | 'update_database' >> beam.ParDo(FireStoreUpdateFn(project_id=known_args.project_id, collection=known_args.collection))
+            | 'update_database' >> beam.ParDo(FireStoreUpdateFn(
+                project_id=known_args.project_id, collection=known_args.collection))
         )
 
 

@@ -9,6 +9,10 @@ The technology behind it:
 * [Google PubSub](https://cloud.google.com/pubsub)
 * [Dataflow](https://cloud.google.com/dataflow)
 
+## Pipeline
+
+![Pipeline](doc/pipeline.jpg?raw=true "Pipeline")
+
 ## Installing / Getting started
 
 ### **Creating the environment using `Virtual Environments`**
@@ -66,3 +70,7 @@ python main.py \
 Run the template on Dataflow:
 
 See the documentation [Running classic templates](https://cloud.google.com/dataflow/docs/guides/templates/running-templates)
+
+## Job on Dialogflow
+
+![dialigflow job](doc/dialigflow-job.jpg?raw=true "dialigflow job")
